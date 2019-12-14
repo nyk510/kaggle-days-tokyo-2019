@@ -1,0 +1,20 @@
+version: "2.3"
+services:
+  jupyter:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    volumes:
+      - ./:/analysis
+      # data dir の binding. 適宜自分の local に合わせて変更して下さい
+      - /media/disk1/dataset/atma_cup_03/:/analysis/data
+      # コンテナ再作成後も notebook の設定が残るように設定を保存するディレクトリを共有する
+      - ./.jupyter/nbconfig:/home/penguin/.jupyter/nbconfig
+
+    environment:
+      # workingdir に python の path を通すことで
+      # プロジェクトルートに配置した自作のモジュールを import できるようにしている
+      - PYTHONPATH=/analysis
+    working_dir: /analysis
+    ports:
+      - 4005:8888

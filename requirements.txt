@@ -1,0 +1,6 @@
+git+https://gitlab.com/nyker510/vivid
+git+https://gitlab+deploy-token-52344:njcLkySBUnurmUhEEQQG@gitlab.com/atma_inc/anemone.git
+jpholiday
+xlrd
+keras
+tensorflow
